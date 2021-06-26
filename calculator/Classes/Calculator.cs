@@ -6,16 +6,23 @@ namespace calculator.Classes
 {
     public class Calculator : ICalculator
     {
+        private readonly IFormula _formula;
+
+        public Calculator(IFormula formula)
+        {
+            _formula = formula;
+        }
+
         public int Calculate(Calculation calculation)
         {
-            
+
             if (calculation.TypeOfCalculation == TypeOfCalculaton.CombinedWith.ToString())
             {
-                calculation.Result = calculation.Input.FirstValue * calculation.Input.SecondValue;
+                calculation.Result = _formula.CombinedWith(calculation.Input.FirstValue, calculation.Input.SecondValue);
             }
             else if (calculation.TypeOfCalculation == TypeOfCalculaton.Either.ToString())
             {
-                calculation.Result = calculation.Input.FirstValue + calculation.Input.SecondValue - calculation.Input.FirstValue * calculation.Input.SecondValue;
+                calculation.Result = _formula.Either(calculation.Input.FirstValue, calculation.Input.SecondValue);
             }
 
             return calculation.Result;

@@ -1,5 +1,4 @@
-﻿using calculator.Classes;
-using calculator.Interfaces;
+﻿using calculator.Interfaces;
 using calculator.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,7 +12,7 @@ namespace calculator.Controllers
     {
         private readonly ILogger<CalculatorController> _logger;
         private readonly ICalculator _calculator;
-      
+
 
         public CalculatorController(ILogger<CalculatorController> logger, ICalculator calculator)
         {
@@ -37,7 +36,7 @@ namespace calculator.Controllers
         {
             List<Functions> Functions = new();
 
-            Functions.Add(new Functions() { FunctionName = "CombinedWith"});
+            Functions.Add(new Functions() { FunctionName = "CombinedWith" });
             Functions.Add(new Functions() { FunctionName = "Either" });
 
             return Functions;

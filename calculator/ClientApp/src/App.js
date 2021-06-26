@@ -1,20 +1,26 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './components/Home';
+import { Calculator } from './components/Calculator';
+import { NavMenu } from './components/NavMenu';
 
 import './custom.css'
-import { Calculator } from './components/Calculator';
 
-export default class App extends Component {
-  static displayName = App.name;
+function App() {
 
-  render () {
     return (
-      <Layout>
-            <Route exact path='/' component={Home} />
-            <Route path='/calculator' component={Calculator} />
-      </Layout>
+        <div>
+            <Router>
+                <NavMenu />
+                <div className="container">
+                    <Switch>
+                        <Route exact path='/' component={ Home } />
+                        <Route path='/calculator' component={ Calculator }/>
+                    </Switch>
+                </div>
+            </Router>
+            </div>
     );
-  }
 }
+
+export default App;

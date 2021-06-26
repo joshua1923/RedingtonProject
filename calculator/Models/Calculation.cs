@@ -11,7 +11,7 @@ namespace calculator.Models
     }
 
     public class Input
-    {
+    { 
         public int FirstValue { get; set; }
         public int SecondValue { get; set; }
     }

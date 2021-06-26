@@ -28,6 +28,7 @@ namespace calculator
 
             services.AddControllersWithViews();
             services.AddScoped<ICalculator, Calculator>();
+            services.AddScoped<IFormula, Formula>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

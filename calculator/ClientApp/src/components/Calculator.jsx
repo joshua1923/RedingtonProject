@@ -1,9 +1,8 @@
-﻿
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Grid, Select, TextField, Button, MenuItem, FormControl } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-export function Calculator() {
+export const Calculator = () => {
 
     const [functions, setFunctions] = useState([]);
     const [selectedFunc, setSelectedFunc] = useState("");
@@ -72,15 +71,14 @@ export function Calculator() {
                         </Select>
                     </FormControl>
                     <FormControl className={classes.formControl}>
-                        <TextField label="Value 1" variant="outlined" margin="normal" onChange={(e) => setFirstValue(e.target.value)} />
+                        <TextField label="Value 1" variant="outlined" type="number" margin="normal" onChange={(e) => setFirstValue(e.target.value)} />
                     </FormControl>
                     <FormControl className={classes.formControl}>
-                        <TextField label="Value 2" variant="outlined" margin="normal" onChange={(e) => setSecondValue(e.target.value)}/>
+                        <TextField label="Value 2" variant="outlined" type="number" margin="normal" onChange={(e) => setSecondValue(e.target.value)}/>
                     </FormControl>
                     <FormControl className={classes.formControl}>
                         <Button type="submit" value="submit" variant="outlined" color="primary">calculate</Button>
                     </FormControl>
-
                     <FormControl className={classes.formControl}>
                         <TextField label="result" value={calculationResult} variant="outlined" margin="normal" disabled />
                     </FormControl>
